@@ -1,0 +1,48 @@
+.polls-wrapper {
+	width: 100%;
+	padding: 1em;
+	.poll {
+		border: 2px solid $black;
+		background: $white;
+		padding: 1em 1em .5em;
+		margin: 1em 0;
+		box-shadow: 1px 2px 5px #333;
+		position: relative;
+		h3 {
+			font-size: 1.5em;
+			margin: 0;
+			text-align: center;
+			border-bottom: 1px solid $primary;
+		}
+		label {
+			font-weight: bold;
+			font-size: 1.1em;
+		}
+		p {
+			margin: 2em 0 0;
+			font-size: 1em;
+			border-top: 1px solid $primary;
+			text-align: left;
+			padding: 1em 0 0;
+		}
+		input[type="submit"] {
+			display: block;
+			position: absolute;
+			bottom: 30px;
+			right: 30px;
+			width: 50px;
+			height: 50px;
+			background: $secondary;
+			color: $white;
+			font-weight: bold;
+			border-radius: 50%;
+			border: 0;
+			box-shadow: rgba(0, 0, 0, 0.4) 0 2px 5px;
+			transition-duration: 0.3s;
+			&:hover {
+				box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.21), 0 16px 28px 0 rgba(0, 0, 0, 0.22);
+				transition: all 0.2s ease-out;
+			}
+		}
+	}
+}

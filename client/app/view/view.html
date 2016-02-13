@@ -1,0 +1,34 @@
+<div class="wrapper">
+<navbar></navbar>
+
+	<header class="text-center">
+	    <h1>Voter's Anonymous</h1>
+	    <h3>Viewing All Polls</h3>
+	</header>
+
+	<div class="polls-wrapper" ng-repeat="poll in view.polls">
+		<div class="poll">
+			<h3>{{poll.question}}</h3>
+<!-- 			<div class="radio" ng-repeat="option in poll.options">
+            	<label class="option"><input type="radio" name="option" value="{{option.option}}" required>{{option.option}}</label>
+            </div> -->
+
+            <form class="vote" ng-submit="view.submitVote(poll.vote, poll._id)">
+            <md-radio-group ng-model="poll.vote">
+
+		      <md-radio-button ng-repeat="option in poll.options" ng-value="option.option" aria-label="{{option.option}}">{{option.option}}</md-radio-button>
+
+		    </md-radio-group>
+
+
+
+		    <a href="/view/{{poll._id}}">Click to view</a>
+			<p>Posted by {{poll.author}} on {{poll.date | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+			<input type="submit" value="Vote">
+			</form>
+		</div>
+	</div>
+
+
+</div>
+<footer></footer>
