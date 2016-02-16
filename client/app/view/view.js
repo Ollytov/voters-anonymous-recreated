@@ -20,5 +20,11 @@ angular.module('votersAnonymousApp')
         templateUrl: 'app/view/view-post-results.html',
         controller: 'ViewPostCtrl',
         controllerAs: 'viewpoll'
+      })
+      .state('view-user-polls', {
+        url: '/view/user/:user',
+        templateUrl: 'app/view/view-user.html',
+        controller: 'ViewUserCtrl',
+        controllerAs: 'view'
       });
   });

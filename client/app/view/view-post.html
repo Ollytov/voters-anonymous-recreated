@@ -1,31 +1,32 @@
 <div class="wrapper">
 <navbar></navbar>
 
-	<header class="text-center">
+	<div class="view-head text-center">
 	    <h1>Voter's Anonymous</h1>
-	    <h3>Viewing Post</h3>
-	</header>
+	    <p>Individual post created by {{viewpoll.poll.author}}. Share this link with your friends!</p>
+	</div>
 
 	<div class="polls-wrapper">
 		<div class="poll">
 			<h3>{{viewpoll.poll.question}}</h3>
-<!-- 			<div class="radio" ng-repeat="option in poll.options">
-            	<label class="option"><input type="radio" name="option" value="{{option.option}}" required>{{option.option}}</label>
-            </div> -->
+	        <div class="poll-inner clearfix">
+	            <form class="vote" ng-submit="viewpoll.submitVote(viewpoll.poll.vote, viewpoll.poll._id)">
+	            <md-radio-group ng-model="viewpoll.poll.vote">
 
-            <form class="vote" ng-submit="viewpoll.submitVote(viewpoll.poll.vote, viewpoll.poll._id)">
-            <md-radio-group ng-model="viewpoll.poll.vote">
+			      <md-radio-button ng-repeat="option in viewpoll.poll.options" ng-value="option" aria-label="{{option}}">{{option}}</md-radio-button>
 
-		      <md-radio-button ng-repeat="option in viewpoll.poll.options" ng-value="option.option" aria-label="{{option.option}}">{{option.option}}</md-radio-button>
+			    </md-radio-group>
 
-		    </md-radio-group>
-
-
-
-
-			<p>Posted by {{viewpoll.poll.author}} on {{viewpoll.poll.date | date:"MM/dd/yyyy 'at' h:mma"}}</p>
-			<input type="submit" value="Vote">
-			</form>
+				<input type="submit" value="Vote">
+				</form>
+			</div>
+			<div class="foot-info clearfix">
+				<div class="info-wrap">
+					<p>Posted by <a href="/view/user/{{viewpoll.poll.author}}">{{viewpoll.poll.author}}</a></p>
+					<p>on {{viewpoll.poll.date | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+				</div>
+				<p class="ext-link"><a href="/view/{{poll._id}}/results"><i class="fa fa-bar-chart"></i></a><a href="/view/{{poll._id}}"><i class="fa fa-external-link"></i></a></p>
+			</div>
 		</div>
 	</div>
 

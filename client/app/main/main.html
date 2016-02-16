@@ -9,18 +9,31 @@
 </header>
 
 <div class="container-form">
-  <form class="mainform" name="form" ng-submit="main.createPoll(form)" novalidate>
-    <h3>Create a Poll!</h3>
-    <div class="form-group">
-      <input type="text" name="question" class="form-control" ng-model="main.question" placeholder="Type your question here" required>
-      <label for="question" class="poll-label">Question:</label>
+  <form class="mainform clearfix" name="form" ng-submit="main.createPoll(form)" novalidate>
+    <div class="head-wrap">
+      <h3>Create a Poll</h3>
     </div>
+    <div class="form-group">
+
+        <input type="text" name="question" class="form-control" ng-model="main.question" placeholder="Type your question here" required>
+        <label for="question" class="poll-label">Question:</label>
+
+    </div>
+    <p class="help-block" ng-show="form.question.$error.required && main.submitted">
+      *Please enter a question
+    </p>
     <div id="options" ng-repeat="option in main.pollOptions">
       <div class="form-group">
         <input type="text" name="option" class="form-control" ng-model="option.option" placeholder="Enter Poll Option..." ng-keydown="main.addOption(option.id)" required>
         <label for="option" class="poll-label">Option: </label>
       </div>
     </div>
+    <p class="help-block" ng-show="main.notEnoughOptions && main.submitted">
+      *You must have at least 2 options set
+    </p>
+    <p class="help-block" ng-show="main.optionError && main.submitted">
+      *Options cannot have the same value
+    </p>
     <input type="submit" class="button-va" value="Create Poll">
   </form>
 </div>

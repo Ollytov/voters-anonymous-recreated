@@ -2,13 +2,14 @@
 
 (function() {
 
-class ViewCtrl {
+class ViewUserCtrl {
 
   constructor($http, $scope, $state, $location, socket, Poll) {
     this.$location = $location;
   	this.$state = $state;
   	this.Poll = Poll;
   	this.polls = Poll.query();
+    this.author = $state.params.user;
   	this.voteError = false;
   }
 
@@ -26,6 +27,6 @@ class ViewCtrl {
 }
 
 angular.module('votersAnonymousApp')
-  .controller('ViewCtrl', ViewCtrl);
+  .controller('ViewUserCtrl', ViewUserCtrl);
 
 })();

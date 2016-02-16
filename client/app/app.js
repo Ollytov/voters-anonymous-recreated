@@ -11,7 +11,8 @@ angular.module('votersAnonymousApp', [
   'ui.router',
   'validation.match',
   'ngMaterial', 
-  'ngMessages'
+  'ngMessages',
+  'wu.masonry'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
@@ -24,5 +25,5 @@ angular.module('votersAnonymousApp', [
       .primaryPalette('indigo', {
         'hue-1': '900'
       })
-      .accentPalette('orange');
+      .accentPalette('pink');
   });

@@ -1,10 +1,15 @@
 <div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController as nav">
   <div class="container">
-<!--     <div class="navbar-header"> -->
     <div class="toggle-left">
-      <md-button class="navbar-button" ng-click="nav.toggleLeft()" class="md-primary">
+      <md-button class="navbar-button" ng-click="nav.toggleLeft()" class="md-primary" aria-label="Toggle Sidebar">
         <i class="fa fa-bars"></i>
       </md-button>
+    </div>
+    <div class="signup-wrap">
+          <md-button ng-hide="nav.isLoggedIn()" class="signup-btn" href="/signup">Sign Up</md-button>
+          <md-button ng-hide="nav.isLoggedIn()" class="signup-btn" href="/login">Log In</md-button>
+          <md-button ng-show="nav.isLoggedIn()" class="signup-btn" href="/view/user/{{ nav.getCurrentUser().name }}">View Your Polls</md-button>
+          <md-button ng-show="nav.isLoggedIn()" class="signup-btn" ui-sref="logout">Log Out</md-button>
     </div>
 <!--       <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -46,7 +51,6 @@
       <li><i class="glyphicon glyphicon-pencil"></i><a href="/">Create Poll</a></li>
       <li><i class="glyphicon glyphicon-search"></i><a href="/view">View All Polls</a></li>
     </ul>
-    <!-- <md-button ng-click="nav.closeNav()" class="md-primary">Close Navigation</md-button> -->
   </md-content>
 
 </md-sidenav>

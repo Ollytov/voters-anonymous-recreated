@@ -1,48 +1,109 @@
+.view-head {
+	color: $black;
+	padding: 0 .2em;
+	h1 {
+		font-size: 1.7em;
+		margin: .3em 0 0;
+	}
+	h3 {
+		font-size: 1.3em;
+		margin: 0;
+	}
+	p {
+		margin: 0;
+	}
+}
+
 .polls-wrapper {
+	display: block;
 	width: 100%;
-	padding: 1em;
+	padding: .5em;
+	margin: 0 auto;
 	.poll {
+		width: 275px;
+		margin: 0 auto;
 		border: 2px solid $black;
 		background: $white;
-		padding: 1em 1em .5em;
-		margin: 1em 0;
+		margin-bottom: 1em;
 		box-shadow: 1px 2px 5px #333;
-		position: relative;
 		h3 {
-			font-size: 1.5em;
+			font-size: 1.3em;
 			margin: 0;
+			padding: .3em;
 			text-align: center;
-			border-bottom: 1px solid $primary;
-		}
-		label {
-			font-weight: bold;
-			font-size: 1.1em;
-		}
-		p {
-			margin: 2em 0 0;
-			font-size: 1em;
-			border-top: 1px solid $primary;
-			text-align: left;
-			padding: 1em 0 0;
-		}
-		input[type="submit"] {
-			display: block;
-			position: absolute;
-			bottom: 30px;
-			right: 30px;
-			width: 50px;
-			height: 50px;
-			background: $secondary;
+			border-bottom: 1px solid $black;
+			background: $primary;
 			color: $white;
+		}
+		.poll-inner {
 			font-weight: bold;
-			border-radius: 50%;
-			border: 0;
-			box-shadow: rgba(0, 0, 0, 0.4) 0 2px 5px;
-			transition-duration: 0.3s;
-			&:hover {
-				box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.21), 0 16px 28px 0 rgba(0, 0, 0, 0.22);
-				transition: all 0.2s ease-out;
+			padding: .2em .6em;
+			input[type="submit"] {
+				background: $secondary;
+				display: block;
+				color: $white;
+				float: right;
+				//width: 3em;
+				box-shadow: 0 1px 4px #333;
+				font-size: 1.1em;
+				padding: .3em .7em;
+	      		border: 0;
 			}
+		}
+
+		.foot-info {
+			border-top: 1px solid $black;
+			margin: .5em 0 0;
+			padding: .5em .3em;
+			.info-wrap {
+				float: left;
+				p {
+					margin: 0;
+					font-size: .8em;
+					text-align: left;
+					a {
+						color: $secondary-dark;
+					}
+
+				}
+			}
+
+			.ext-link {
+				float: right;
+				a {
+					margin: 0 .2em;
+					color: $secondary-dark;
+					font-size: 1.2em;
+				}
+			}
+		}
+	}
+}
+
+.return {
+	a {
+		background: $secondary;
+		display: block;
+		color: $white;
+		width: 7.5em;
+		text-align: center;
+		margin: 1em auto;
+		box-shadow: 0 1px 4px #333;
+		font-size: 1.1em;
+		padding: .3em .7em;
+  		border: 0;
+  		&:hover {
+  			text-decoration: none;
+  		}
+	}
+}
+
+
+@media screen and (min-width: 400px) {
+	.polls-wrapper {
+		.poll {
+			width: 350px;
+			margin: 0 auto 1em;
 		}
 	}
 }

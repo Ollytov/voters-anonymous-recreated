@@ -8,7 +8,19 @@ angular.module('votersAnonymousApp')
       controller: function($scope, $state, Poll) {
 		this.poll = Poll.get({id: $state.params.id}).$promise.then(function(poll) {
 			let question = poll.question;
-			console.log(question);
+			let data = [];
+			for (let i = 0; i < poll.options.length; i++) {
+				let count = 0;
+				for (let x = 0; x < poll.votes.length; x++) {
+					if (poll.options[i] === poll.votes[x]) {
+						count++;
+					}
+				}
+				data.push({
+					name: poll.options[i],
+					y: count
+				});
+			}
 
 		angular.element('#results').highcharts({
 		        chart: {
@@ -18,10 +30,11 @@ angular.module('votersAnonymousApp')
 		            type: 'pie'
 		        },
 		        title: {
-		            text: question
+		            text: question,
+		            style: { 'font-size' : '1.5em', 'font-weight' : 'bold'}
 		        },
 		        tooltip: {
-		            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		            pointFormat: '{series.name}: <b>{point.y}</b>'
 		        },
 		        plotOptions: {
 		            pie: {
@@ -29,37 +42,17 @@ angular.module('votersAnonymousApp')
 		                cursor: 'pointer',
 		                dataLabels: {
 		                    enabled: true,
-		                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+		                    format: '<b>{point.name}</b>: {point.y}',
 		                    style: {
-		                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+		                        color: 'black'
 		                    }
 		                }
 		            }
 		        },
 		        series: [{
-		            name: 'Brands',
+		            name: 'Votes',
 		            colorByPoint: true,
-		            data: [{
-		                name: 'Microsoft Internet Explorer',
-		                y: 56.33
-		            }, {
-		                name: 'Chrome',
-		                y: 24.03,
-		                sliced: true,
-		                selected: true
-		            }, {
-		                name: 'Firefox',
-		                y: 10.38
-		            }, {
-		                name: 'Safari',
-		                y: 4.77
-		            }, {
-		                name: 'Opera',
-		                y: 0.91
-		            }, {
-		                name: 'Proprietary or Undetectable',
-		                y: 0.2
-		            }]
+		            data: data
 		        }]
 		    })
 		})
