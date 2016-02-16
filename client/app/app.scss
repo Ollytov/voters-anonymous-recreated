@@ -35,11 +35,11 @@ body {
   background: $background;
   font-size: 16px;
   color: #0E0E2F;
-  min-height: calc(100vh - 42px);
+  min-height: calc(100vh - 86px);
 }
 
 .wrapper {
-	min-height: calc(100vh - 42px);
+	min-height: calc(100vh - 86px);
 }
 
 // Component styles are injected through grunt
