@@ -6,7 +6,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://meanuser:meanpass@ds051625.mongolab.com:51625/voters-anonymous'
+    uri: 'mongodb://meanuser:meanpass@ds011218.mongolab.com:11218/heroku_qbd4z7kn'
   },
 
   // Seed database on startup

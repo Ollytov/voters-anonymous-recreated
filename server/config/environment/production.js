@@ -19,6 +19,6 @@ module.exports = {
           process.env.MONGOHQ_URL ||
           process.env.OPENSHIFT_MONGODB_DB_URL +
           process.env.OPENSHIFT_APP_NAME ||
-          'mongodb://localhost/votersanonymous'
+          'mongodb://meanuser:meanpass@ds011218.mongolab.com:11218/heroku_qbd4z7kn'
   }
 };
